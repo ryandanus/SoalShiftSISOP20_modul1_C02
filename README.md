@@ -83,28 +83,80 @@ merupakan hasil dari grep "Location".
 
 ## Pembahasan no 1 
 #### 1. A
-
-
-## Pembahasan no 1 B
-no 1 C
-no 2 A
-no 2 B
-no 2 C
-no 2 D
-no 3 A
-no 3 B
-no 3 C
 ```
-bash
 #!/bin/bash
+jawaban1a=$( awk -F'\t' 'NR>1{
+  array[$13]+=$21
+}
+END{
+  Hasil = 60000000
+  for (i in array){
+      if ( array[i] < Hasil ){
+          Hasil = array[i]
+          Kota = i
+    }
+  }
+  print Kota
+}' Sample-Superstore.tsv
+)
 
-a=15
-b=7
+echo $jawaban1a
 
-if [ $a -eq $b ]
-then
-  echo "$a -eq $b: a sama dengan b"
-else
-  echo "$a -eq $b: a tidak sama dengan b"
-fi
+jawaban1b=($( awk -F'\t' -v x=$jawaban1a 'NR>1{
+  if( $13 == x ){
+    array[$11]+=$21
+  }
+}
+END{
+  for (i in array)
+    print array[i] ":"i
+}
+' Sample-Superstore.tsv |LC_ALL=C sort -n| head -2 | awk -F':' '{print $2}' ))
+
+echo "${jawaban1b[0]}"
+echo "${jawaban1b[1]}"
+
+awk -F '\t' -v x=${jawaban1b[0]} -v y={$jawaban1b[1]} -v z=$jawaban1a 'NR>1{ if($13 == z && ($11 == x || $11 == y)) array[$17]+=$21;}
+END{
+  for (i in array)
+    print array[i] ":" i
+}
+' Sample-Superstore.tsv|LC_ALL=C sort -n| head -10 | awk -F':' '{print $1 " " $2}'
+```
+#### 1. B
+```
+
+```
+#### 1. C
+```
+```
+
+
+## Pembahasan no 2 
+#### 2. A
+#### 2. B
+#### 2. C
+#### 2. D
+
+
+## Pembahasan no 3
+#### 3. A
+```
+# !/bin/bash
+for ((num=1; num<=28; num=num+1))
+do
+  wget -a wget.log -O pdkt_kusuma_$num "https://loremflickr.com/320/240/cat"
+done
+```
+Sumber : https://www.geeksforgeeks.org/wget-command-in-linux-unix/
+
+#### 3. B
+```
+5 6-14 * * sun-mon /bin/bash /home/danu/soal3a.sh >> wget.log
+```
+Sumber : https://jaranguda.com/menjalankan-bash-script-dengan-crontab/
+
+#### 3. C
+
+```
 ```
