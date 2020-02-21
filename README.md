@@ -478,3 +478,58 @@ rm temp.log
 rm wget.log
 rm location.log
 ```
+Dalam program ini digunakan pembacaan file yang ada dikarenakan diketahui bahwa pdkt berurutan sehingga saat dibentuk dilakukan secara berurutan (hal ini sama dengan wget.log)
+```
+ls > temp.log
+```
+kemudian diperlukan pembagian data dikarenakan data yang dikeluarkan pada saat menggunakan wget -a ini berupa hasi dari proses wget. Oleh karena itu diperlukan pembagian untuk membaca location data. Dengan grep -r kita dapat membagi hasil bedasarkan string yang mirip dalam line wget. Setelah itu dimasukan datanya kedalam locationlog(nama filenya bebas)
+```
+grep -r "Location" wget.log >> location.log
+```
+kemudian untuk memastikan nama file yang ada pada folder foto hanya pdkt saja dilakukan grep yang sama
+```
+grep -r "pdkt" temp.log >> name.log
+```
+Setelah itu digunakan readarray yang berfungsi untuk membaca setiap line dalam file menjadi array
+```
+readarray line < location.log
+readarray filename < name.log
+```
+dikarenakan Filenya hanya 28, dilakukan looping. Apabila file lebih dari 28 maka dapat dilakukan read dan dibuat constrain sesuai input yang dimaksud
+Setelah itu dilakukan deklarasi array dengan a dan array. a disini dimaksud untuk menyimpan isi dari line location yang di interasi. Sedangkan array dengan iterasi (contohnya array pertama) diberi isi a atau iterasi dari line location
+```
+ a=${line[$i]}
+ array[$i]=$a
+```
+Kemudian dilakukan loop untuk mengecek apakah array yang sudah ada memiliki link yang sama dengan array link baru.
+Didalam code ini digunakan flag yang bertujuan untuk pengecekan apakah array iterasi yang berisi line location sama dengan array baru yang berisi line location yang sedang diiterasi
+ ```
+ for ((j=0;j<i;j++))
+ do
+  if [[ "${array[$j]}" = "${array[$i]}" ]]
+  then
+  let flag++
+ done
+ ```
+ Jika ditemukan file foto yang sama maka flag akan lebih dari satu. 
+ Oleh karena itu dimasukan kedalam duplicate
+ ketika program ini berjalan kita harus mengecek apakah directori ./duplicate berisi foto atau tidak
+ ```
+ if [[ "$flag" -gt 0 ]]
+    then
+      cd /home/feinard/Praktikum/.duplicate
+ ```
+ kemudian dilakukan iterasi untuk pengecekan angka file berikutnya
+ ```
+ temp=1
+      if [[ -e "duplicate_$temp" ]]
+      then
+        while [[ -e "duplicate_$temp" ]] ;
+          do
+            let  temp++
+          done
+          name=duplicate_$temp
+      else
+        name="duplicate_1"
+      fi
+ ```
