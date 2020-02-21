@@ -64,3 +64,7 @@ for ((i=0;i<28;i++))
   done
 cat location.log >> backup.log.bak
 cat wget.log >> backup.log.bak
+rm name.log
+rm temp.log
+rm wget.log
+rm location.log
