@@ -1,3 +1,4 @@
+```
 #!bin/bash
 
 keyDe=$(date -r "$1" "+%H")
@@ -5,7 +6,7 @@ v="$1"
 tempFile_name=${v::-4}
 case "$keyDe" in
   "0")
- nameFile=$(echo $tempFile_name | tr   )
+ nameFile=$(echo $tempFile_name | tr  '[a-zA-Z]' '[a-zA-Z]' )
   ;;
   "1")
  nameFile=$(echo $tempFile_name | tr '[b-zaB-ZA]''[a-zA-Z]')
