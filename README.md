@@ -192,12 +192,24 @@ do
   wget -a wget.log -O pdkt_kusuma_$num "https://loremflickr.com/320/240/cat"
 done
 ```
+Fungsi wget diatas berfungsi untuk mendownload sebuah weppage
+
+-a wget.log 
+Opsi ini digunakan untuk mengarahkan semua pesan yang dihasilkan oleh sistem ke file log yang ditentukan oleh opsi dan ketika proses selesai semua pesan yang dihasilkan tersedia dalam file log. Jika tidak ada file log yang ditentukan, maka pesan output akan dialihkan ke file log default yaitu wget -log
+
+-O pdkt_kusuma_$num "https://loremflickr.com/320/240/cat"
+untuk mengganti nama menjadi nama file menjadi "pdkt_kusuma_NO"
+
+untuk mendapatkan ke 28 gambar dilooping sebanyak 28 kali menggunakan perulangan for
+Sumber : https://www.geeksforgeeks.org/wget-command-in-linux-unix/
 Sumber : https://www.geeksforgeeks.org/wget-command-in-linux-unix/
 
 #### 3. B
 ```
-5 6-14 * * sun-mon /bin/bash /home/danu/soal3a.sh >> wget.log
+5 6-23/8 * * 1-5,7 /bin/bash /home/danu/soal3a.sh >> wget.log
 ```
+“At minute 5 past every 8th hour from 6 through 23 on every day-of-week from Monday through Friday and Sunday.”
+
 Sumber : https://jaranguda.com/menjalankan-bash-script-dengan-crontab/
 
 #### 3. C
