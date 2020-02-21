@@ -174,10 +174,100 @@ END{
 Untuk 1c dikarenakan output 1b maka digunakan array untuk mengetahui hasil pertama dan kedua pada saat menggunakan -v untuk deklarasi variable. Kemudian untuk loop digunakan perbandingan variable antara state dan region. Kemudian pada End digunakan output yang nantinya akan dicek pada LC_ALL=c sort-n dengan maksimum data dengan head-10 dan dikeluarkan dengan menggunakan awk baru
 
 ## Pembahasan no 2 
-#### 2. A
-#### 2. B
-#### 2. C
-#### 2. D
+#### 2.
+
+```
+#!bin/bash
+
+Password=$(head /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 28 | head -n 1)
+v="$1"
+tempFile_name=${v::-4}
+if [[ $tempFile_name =~ [0-9] ]]
+  then
+  fixFile_name=${tempFile_name//[0-9]/}
+else
+  fixFile_name=$tempFile_name
+fi
+now=`date +"%H"`;
+case "$now" in
+  "0")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[a-zA-Z]')
+  ;;
+  "1")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[b-zaB-ZA]')
+  ;;
+  "2")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[c-za-bC-ZA-B]')
+  ;;
+  "3")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[d-za-cD-ZA-C]')
+  ;;
+  "4")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[e-za-dE-ZA-D]')
+  ;;
+  "5")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[f-za-eF-ZA-E]')
+  ;;
+  "6")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[g-za-fG-ZA-F]')
+  ;;
+  "7")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[h-za-gH-ZA-G]')
+  ;;
+  "8")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[i-za-hI-ZA-H]')
+  ;;
+  "9")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[j-za-iJ-ZA-I]')
+  ;;
+  "10")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[k-za-jK-ZA-J]')
+  ;;
+  "11")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[l-za-kL-ZA-K]')
+  ;;
+  "12")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[m-za-lM-ZA-L]')
+  ;;
+  "13")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[n-za-mN-ZA-M')
+  ;;
+  "14")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[o-za-nO-ZA-N]')
+  ;;
+  "15")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[p-za-oP-ZA-O]')
+  ;;
+  "16")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[q-za-pQ-ZA-P]')
+  ;;
+  "17")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[r-za-qR-ZA-Q]')
+  ;;
+  "18")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[s-za-rS-ZA-R]')
+  ;;
+  "19")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[t-za-sT-ZA-S]')
+  ;;
+  "20")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[u-za-tU-ZA-T]')
+  ;;
+  "21")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[v-za-uV-ZA-U]')
+  ;;
+  "22")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[w-za-vW-ZA-V]')
+  ;;
+  "23")
+    nameFile=$(echo $fixFile_name | tr '[a-zA-Z]' '[x-za-wX-ZA-W]')
+  ;;
+esac
+echo $Password > $nameFile.txt
+echo "Real Name is: $fixFile_name" >> $nameFile.txt
+echo "Build in: " $(date +"%H:%M") >> $nameFile.txt
+```
+
 untuk no 2 digunakan 2 aplikasi untuk melakukan encoding dan melakukan decoding (permintaan soal no 2d). Pada soal encoding pertama dilakukan randomizer 28 huruf besar,kecil,dan angka. Maka variable Password digunakan untuk melakukan randomizer. pada linux terdapat modul yang dapat digunakan untuk randomizer yaitu /dev/urandom. Kemudian digunakan tr-dc yang digunakan untuk pembagi ascii yang akan dipakai. Pada program ini digunakan huruf besar kecil dan angka maka digunakan *azA-Z0_9* sebagai deklarasi randomizernya. Setelah itu digunakan fold -w yang digunakan untuk membatasi char yang dipakai. Dan head yang digunakan untuk output satu 28char sebagai password. Jika ingin 2 password maka tinggal diganti headnya.
 Kemudian digunakan variable untuk menyimpas *$1* dkarenakan adanya .txt pada *$1*. Sehinggal dilakukan penghapusan .txt pada tempFile_name dengan *codetemptfileline5* dengan ::-4 sebagai penghapus .txt yang ada. Kemudian dilakukan pengecekan jika adanya angka. Jika ada maka dihapus angka yang ada. Jika tidak maka dilanjutkan programnya. Kemudian diambil jam yang ada didalam sistem,dengan menggunakan date+%H. Setelah itu digunakan jamnya untuk melakukan encoding namafilenya. Kemungkinan besar ada cara yang lebih simple untuk melakukan encoding, akan tetapi program ini menggunakan case dikarenakan jam hanya 24 jam,sehingga mudah dilakukan case tanpa perlu looping/program advance lainnya. Dilakukan pengecekan time case jika 1 maka a menjadi b,b menjadi c, dan seterusnya. Oleh karena itu dapat digunakan tr yang digunakan untuk mengubah a menjadi paramater yang diinginkan. pada program, tr'[a-zA-Z]' '[b-zaB-ZA]' digunakan untuk membuat a menjadi b dan seterusnya. akan tetapi ada program bisa dilihat bahwa ketika mencapai x yaitu z,maka z harus kembali ke a. Sehingga pada 2nd parameter saat ingin mendapatkan hasil z digunakan b-za yang berfungsi untuk mengembalikan z menjadi a. sehingga jika jam adalah 2 ketika kita ingin mendapatkan hasil encoding z maka yang didapat adalah b. Didalam paramater ini jga dapat digunakan huruf besar sehingga langsung diberikan disamping a-z menjadi a-zA-Z.
 Setelah case selesai maka dikeluarkan echo password, nama aslinya(optional) ,dan tanggalnya(opsional) kedalam namafile.ext yang telah diencode
@@ -201,7 +291,6 @@ Opsi ini digunakan untuk mengarahkan semua pesan yang dihasilkan oleh sistem ke 
 untuk mengganti nama menjadi nama file menjadi "pdkt_kusuma_NO"
 
 untuk mendapatkan ke 28 gambar dilooping sebanyak 28 kali menggunakan perulangan for
-Sumber : https://www.geeksforgeeks.org/wget-command-in-linux-unix/
 Sumber : https://www.geeksforgeeks.org/wget-command-in-linux-unix/
 
 #### 3. B
