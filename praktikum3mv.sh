@@ -1,6 +1,7 @@
 #!/bash/bin
 
 ls > temp.log
+grep -r "Location" wget.log >> location.log
 grep -r "pdkt" temp.log >> name.log
 readarray line < location.log
 readarray filename < name.log
