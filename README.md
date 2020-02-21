@@ -286,7 +286,7 @@ Sumber : https://www.geeksforgeeks.org/wget-command-in-linux-unix/
 
 #### 3. B
 ```
-5 6-23/8 * * 1-5,7 /bin/bash /home/danu/soal3a.sh >> wget.log
+5 6-23/8 * * 1-5,7 /bin/bash /home/danu/praktikum1-3a.sh >> wget.log
 ```
 “At minute 5 past every 8th hour from 6 through 23 on every day-of-week from Monday through Friday and Sunday.”
 
