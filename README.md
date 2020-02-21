@@ -178,6 +178,9 @@ Untuk 1c dikarenakan output 1b maka digunakan array untuk mengetahui hasil perta
 #### 2. B
 #### 2. C
 #### 2. D
+untuk no 2 digunakan 2 aplikasi untuk melakukan encoding dan melakukan decoding (permintaan soal no 2d). Pada soal encoding pertama dilakukan randomizer 28 huruf besar,kecil,dan angka. Maka variable Password digunakan untuk melakukan randomizer. pada linux terdapat modul yang dapat digunakan untuk randomizer yaitu /dev/urandom. Kemudian digunakan tr-dc yang digunakan untuk pembagi ascii yang akan dipakai. Pada program ini digunakan huruf besar kecil dan angka maka digunakan *azA-Z0_9* sebagai deklarasi randomizernya. Setelah itu digunakan fold -w yang digunakan untuk membatasi char yang dipakai. Dan head yang digunakan untuk output satu 28char sebagai password. Jika ingin 2 password maka tinggal diganti headnya.
+Kemudian digunakan variable untuk menyimpas *$1* dkarenakan adanya .txt pada *$1*. Sehinggal dilakukan penghapusan .txt pada tempFile_name dengan *codetemptfileline5* dengan ::-4 sebagai penghapus .txt yang ada. Kemudian dilakukan pengecekan jika adanya angka. Jika ada maka dihapus angka yang ada. Jika tidak maka dilanjutkan programnya. Kemudian diambil jam yang ada didalam sistem,dengan menggunakan date+%H. Setelah itu digunakan jamnya untuk melakukan encoding namafilenya. Kemungkinan besar ada cara yang lebih simple untuk melakukan encoding, akan tetapi program ini menggunakan case dikarenakan jam hanya 24 jam,sehingga mudah dilakukan case tanpa perlu looping/program advance lainnya. Dilakukan pengecekan time case jika 1 maka a menjadi b,b menjadi c, dan seterusnya. Oleh karena itu dapat digunakan tr yang digunakan untuk mengubah a menjadi paramater yang diinginkan. pada program, tr'[a-zA-Z]' '[b-zaB-ZA]' digunakan untuk membuat a menjadi b dan seterusnya. akan tetapi ada program bisa dilihat bahwa ketika mencapai x yaitu z,maka z harus kembali ke a. Sehingga pada 2nd parameter saat ingin mendapatkan hasil z digunakan b-za yang berfungsi untuk mengembalikan z menjadi a. sehingga jika jam adalah 2 ketika kita ingin mendapatkan hasil encoding z maka yang didapat adalah b. Didalam paramater ini jga dapat digunakan huruf besar sehingga langsung diberikan disamping a-z menjadi a-zA-Z.
+Setelah case selesai maka dikeluarkan echo password, nama aslinya(optional) ,dan tanggalnya(opsional) kedalam namafile.ext yang telah diencode
 
 
 ## Pembahasan no 3
@@ -189,23 +192,12 @@ do
   wget -a wget.log -O pdkt_kusuma_$num "https://loremflickr.com/320/240/cat"
 done
 ```
-Fungsi wget diatas berfungsi untuk mendownload sebuah weppage
-
--a wget.log 
-Opsi ini digunakan untuk mengarahkan semua pesan yang dihasilkan oleh sistem ke file log yang ditentukan oleh opsi dan ketika proses selesai semua pesan yang dihasilkan tersedia dalam file log. Jika tidak ada file log yang ditentukan, maka pesan output akan dialihkan ke file log default yaitu wget -log
-
--O pdkt_kusuma_$num "https://loremflickr.com/320/240/cat"
-untuk mengganti nama menjadi nama file menjadi "pdkt_kusuma_NO"
-
-untuk mendapatkan ke 28 gambar dilooping sebanyak 28 kali menggunakan perulangan for
 Sumber : https://www.geeksforgeeks.org/wget-command-in-linux-unix/
 
 #### 3. B
 ```
-5 6-23/8 * * 1-5,7 /bin/bash /home/danu/soal3a.sh >> wget.log
+5 6-14 * * sun-mon /bin/bash /home/danu/soal3a.sh >> wget.log
 ```
-“At minute 5 past every 8th hour from 6 through 23 on every day-of-week from Monday through Friday and Sunday.”
-
 Sumber : https://jaranguda.com/menjalankan-bash-script-dengan-crontab/
 
 #### 3. C
