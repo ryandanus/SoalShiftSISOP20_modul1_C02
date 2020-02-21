@@ -129,6 +129,7 @@ END{
 }
 ' Sample-Superstore.tsv |LC_ALL=C sort -n| head -2 | awk -F':' '{print $2}'
 ```
+Pada no b digunakan hasil dari no a maka digunakan -v yang digunakan untuk mengeset variable dari tempat lainnya. Akan tetapi untuk daapt menghasilkan hasil no 1a digunakan echo dari hasil pertama. Dalam program ini digunakan jawaban1a yang digunakan untuk mendapatkan hasil dari awk 1a/  kemudian dilakukan pengecekan pada *$13* apakah *x* itu yang dimaksud maka digunakan array yang bernama *$11* untuk menjumlah profit.Kemudian pada END dilakukan hal yang sama untuk pengecekan. Akan tetapi dikarenakan output yang dimaksud ada 2 maka digunakan LC_ALL=c sort -n untuk melakukan sort berdasarkan hasil dari *array[i]*. Setelah itu untuk output 2 biji digunakan head -2 kemudian dikeluarkan dengan menggunakan awk baru kembali
 
 
 #### 1. C
@@ -161,8 +162,6 @@ END{
 }
 ' Sample-Superstore.tsv |LC_ALL=C sort -n| head -2 | awk -F':' '{print $2}' ))
 
-echo "${jawaban1b[0]}"
-echo "${jawaban1b[1]}"
 
 awk -F '\t' -v x=${jawaban1b[0]} -v y={$jawaban1b[1]} -v z=$jawaban1a 'NR>1{ if($13 == z && ($11 == x || $11 == y)) array[$17]+=$21;}
 END{
@@ -172,6 +171,7 @@ END{
 ' Sample-Superstore.tsv|LC_ALL=C sort -n| head -10 | awk -F':' '{print $2}'
 ```
 
+Untuk 1c dikarenakan output 1b maka digunakan array untuk mengetahui hasil pertama dan kedua pada saat menggunakan -v untuk deklarasi variable. Kemudian untuk loop digunakan perbandingan variable antara state dan region. Kemudian pada End digunakan output yang nantinya akan dicek pada LC_ALL=c sort-n dengan maksimum data dengan head-10 dan dikeluarkan dengan menggunakan awk baru
 
 ## Pembahasan no 2 
 #### 2. A
