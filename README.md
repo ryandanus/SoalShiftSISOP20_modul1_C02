@@ -296,8 +296,11 @@ Sumber : https://jaranguda.com/menjalankan-bash-script-dengan-crontab/
 
 ```
 #!/bash/bin
-echo "cat ls > name.log"
-readarray line < wget.log
+
+ls > temp.log
+grep -r "Location" wget.log >> location.log
+grep -r "pdkt" temp.log >> name.log
+readarray line < location.log
 readarray filename < name.log
 for ((i=0;i<28;i++))
   do
@@ -357,5 +360,10 @@ for ((i=0;i<28;i++))
       mv "$name" /home/feinard/Praktikum/.kenangan
     fi
   done
-  rm name.log
+cat location.log >> backup.log.bak
+cat wget.log >> backup.log.bak
+rm name.log
+rm temp.log
+rm wget.log
+rm location.log
 ```
