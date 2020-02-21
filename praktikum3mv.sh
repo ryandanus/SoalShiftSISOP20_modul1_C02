@@ -31,11 +31,9 @@ for ((i=0;i<28;i++))
       else
         name="duplicate_1"
       fi
-      echo "$name"
       cd -
       a="${filename[$i]}"
       a="${a//[$'\n\r ']}"
-      echo $a
       mv $a $name
       echo "MOVING DUPLICATE"
       mv "$name" /home/feinard/Praktikum/.duplicate
@@ -53,11 +51,9 @@ for ((i=0;i<28;i++))
       else
         name="kenangan_1"
       fi
-      echo "$name"
       cd -
       b="${filename[$i]}"
       b="${b//[$s'\n\r ']}"
-      echo $b
       mv $b $name
       echo "MOVING KENANGAN"
       mv "$name" /home/feinard/Praktikum/.kenangan
