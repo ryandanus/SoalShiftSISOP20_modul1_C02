@@ -1,7 +1,7 @@
 # SoalShiftSISOP20_modul1_C02
 ### Kelompok 
-- Feinard 05111840000144
-- Ryan Danu Saputra 05111840000144
+- Feinard             05111840000081
+- Ryan Danu Saputra   05111840000144
 
 ## Soal 1
 Whits adalah seorang mahasiswa teknik informatika. Dia mendapatkan tugas praktikum
