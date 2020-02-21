@@ -3,15 +3,6 @@
 - Feinard 05111840000144
 - Ryan Danu Saputra 05111840000144
 
-## Daftar Isi
-1. [Pembahasan no 1](#1-pembahasan-no-1)
-    - [1.1 Shell](#11-shell)
-        - [1.5.1 Special Variable](#151-special-variable)
-2. [Cron](#2-cron)
-    - [2.1 Membuat atau mengubah cron jobs](#21-membuat-atau-mengubah-cron-jobs)
-3. [AWK](#3-awk)
-    - [3.1 Menjalankan Program AWK](#31-menjalankan-program-awk)
-
 ## Soal 1
 Whits adalah seorang mahasiswa teknik informatika. Dia mendapatkan tugas praktikum
 untuk membuat laporan berdasarkan data yang ada pada file “Sample-Superstore.tsv”.
