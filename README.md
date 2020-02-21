@@ -275,7 +275,7 @@ v="$1"
 tempFile_name=${v::-4}
 case "$keyDe" in
   "0")
- nameFile=$(echo $tempFile_name | tr   )
+ nameFile=$(echo $tempFile_name | tr  '[a-zA-Z]' '[a-zA-Z]' )
   ;;
   "1")
  nameFile=$(echo $tempFile_name | tr '[b-zaB-ZA]''[a-zA-Z]')
@@ -348,6 +348,7 @@ case "$keyDe" in
   ;;
 esac
 mv $1 $nameFile.txt
+
 ```
 untuk decode digunakan algo yang mirip dengan encode. Pertama dengan cara membaca tanggal dibuatnya file itu, hal itu dapat digunakan dengan date -r namafile fungsi . Sehingga didapatkan jam pada saat file dibuat
 ```
@@ -360,7 +361,19 @@ v="$1"
 tempFile_name=${v::-4}
 ```
 
-kemudian 
+kemudian dengan time yang ada digunakan case untuk decrypt data 
+```
+case "$keyDe" in
+```
+tetapi untuk melakukan decrypt saat digunakan tr, dari char a-z diganti dengan variable encripsi. Misalkan jika jam adalah 1 maka char a-z diganti dengan b-za
+```
+nameFile=$(echo $tempFile_name | tr  '[a-zA-Z]' '[a-zA-Z]'
+```
+kemudian outputnya namefile digunakan untuk menggunakan command linux mv untuk mengganti nama yang diencrypt menjadi nama asalnya
+
+```
+mv $1 $nameFile.txt
+```
 
 ## Pembahasan no 3
 #### 3. A
