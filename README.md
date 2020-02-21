@@ -91,7 +91,11 @@ END{
 }' Sample-Superstore.tsv
 
 ```
-Dalam awk ini kita gunakan -F atau bisa disebut FS yang digunakan untuk membagi suatu line menjadi beberapa variable, kemudian dikarenakan adanya line pertama yang berisikan nama table maka kita dapat melakukan skip line dengan menggunakan NR>1. Saat dilakukan looping maka array yang bernama *insertname* akan ditambah nilainya, jika nama *insert $13name* sama maka nilainya akan ditambah. Kemudian saat end kita akan mendefinisi hasil yang digunakan untuk parameter nilai terkecil. Di;akukan loopinf for i in array yang berfungsi untuk mengecek apakah array yang dicek sudah habis kemudia menggunakan if array[i] < hasil kita gunakan untuk mencari *$13* terkecil. Kemudian datanya disimpan di kota dan dikeluarkan saat program telah selesai membaca array.
+Dalam awk ini kita gunakan -F atau bisa disebut FS yang digunakan untuk membagi suatu line menjadi beberapa variable,
+```
+awk -F'\t'
+```
+kemudian dikarenakan adanya line pertama yang berisikan nama table maka kita dapat melakukan skip line dengan menggunakan NR>1. Saat dilakukan looping maka array yang bernama *insertname* akan ditambah nilainya, jika nama *insert $13name* sama maka nilainya akan ditambah. Kemudian saat end kita akan mendefinisi hasil yang digunakan untuk parameter nilai terkecil. Di;akukan loopinf for i in array yang berfungsi untuk mengecek apakah array yang dicek sudah habis kemudia menggunakan if array[i] < hasil kita gunakan untuk mencari *$13* terkecil. Kemudian datanya disimpan di kota dan dikeluarkan saat program telah selesai membaca array.
 #### 1. B
 ```
 #!/bin/bash
@@ -355,6 +359,8 @@ Kemudian diambil kembali pembacaan nama file yang dimaksud dan dibuang ekstensin
 v="$1"
 tempFile_name=${v::-4}
 ```
+
+kemudian 
 
 ## Pembahasan no 3
 #### 3. A
