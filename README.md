@@ -195,7 +195,7 @@ END{
   for (i in array)
     print array[i] ":" i
 }
-' Sample-Superstore.tsv|LC_ALL=C sort -n| head -10 | awk -F':' '{print $1 " " $2}'
+' Sample-Superstore.tsv|LC_ALL=C sort -n| head -10 | awk -F':' '{print $2}'
 ```
 
 
