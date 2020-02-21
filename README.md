@@ -263,8 +263,98 @@ untuk no 2 digunakan 2 aplikasi untuk melakukan encoding dan melakukan decoding 
 Kemudian digunakan variable untuk menyimpas *$1* dkarenakan adanya .txt pada *$1*. Sehinggal dilakukan penghapusan .txt pada tempFile_name dengan *codetemptfileline5* dengan ::-4 sebagai penghapus .txt yang ada. Kemudian dilakukan pengecekan jika adanya angka. Jika ada maka dihapus angka yang ada. Jika tidak maka dilanjutkan programnya. Kemudian diambil jam yang ada didalam sistem,dengan menggunakan date+%H. Setelah itu digunakan jamnya untuk melakukan encoding namafilenya. Kemungkinan besar ada cara yang lebih simple untuk melakukan encoding, akan tetapi program ini menggunakan case dikarenakan jam hanya 24 jam,sehingga mudah dilakukan case tanpa perlu looping/program advance lainnya. Dilakukan pengecekan time case jika 1 maka a menjadi b,b menjadi c, dan seterusnya. Oleh karena itu dapat digunakan tr yang digunakan untuk mengubah a menjadi paramater yang diinginkan. pada program, tr'[a-zA-Z]' '[b-zaB-ZA]' digunakan untuk membuat a menjadi b dan seterusnya. akan tetapi ada program bisa dilihat bahwa ketika mencapai x yaitu z,maka z harus kembali ke a. Sehingga pada 2nd parameter saat ingin mendapatkan hasil z digunakan b-za yang berfungsi untuk mengembalikan z menjadi a. sehingga jika jam adalah 2 ketika kita ingin mendapatkan hasil encoding z maka yang didapat adalah b. Didalam paramater ini jga dapat digunakan huruf besar sehingga langsung diberikan disamping a-z menjadi a-zA-Z.
 Setelah case selesai maka dikeluarkan echo password, nama aslinya(optional) ,dan tanggalnya(opsional) kedalam namafile.ext yang telah diencode
 #### 2. D
-untuk decode digunakan algo yang mirip dengan encode. Pertama
+```
+#!bin/bash
 
+keyDe=$(date -r "$1" "+%H")
+v="$1"
+tempFile_name=${v::-4}
+case "$keyDe" in
+  "0")
+ nameFile=$(echo $tempFile_name | tr   )
+  ;;
+  "1")
+ nameFile=$(echo $tempFile_name | tr '[b-zaB-ZA]''[a-zA-Z]')
+  ;;
+  "2")
+ nameFile=$(echo $tempFile_name | tr '[c-za-bC-ZA-B]''[a-zA-Z]')
+  ;;
+  "3")
+ nameFile=$(echo $tempFile_name | tr '[d-za-cD-ZA-C]''[a-zA-Z]')
+  ;;
+  "4")
+ nameFile=$(echo $tempFile_name | tr '[e-za-dE-ZA-D]''[a-zA-Z]')
+  ;;
+  "5")
+ nameFile=$(echo $tempFile_name | tr '[f-za-eF-ZA-E]''[a-zA-Z]')
+  ;;
+  "6")
+ nameFile=$(echo $tempFile_name | tr '[g-za-fG-ZA-F]''[a-zA-Z]')
+  ;;
+  "7")
+ nameFile=$(echo $tempFile_name | tr '[h-za-gH-ZA-G]''[a-zA-Z]')
+  ;;
+  "8")
+ nameFile=$(echo $tempFile_name | tr '[i-za-hI-ZA-H]''[a-zA-Z]')
+  ;;
+  "9")
+ nameFile=$(echo $tempFile_name | tr '[j-za-iJ-ZA-I]''[a-zA-Z]')
+  ;;
+  "10")
+ nameFile=$(echo $tempFile_name | tr '[k-za-jK-ZA-J]''[a-zA-Z]')
+  ;;
+  "11")
+ nameFile=$(echo $tempFile_name | tr '[l-za-kL-ZA-K]''[a-zA-Z]')
+  ;;
+  "12")
+ nameFile=$(echo $tempFile_name | tr '[m-za-lM-ZA-L]''[a-zA-Z]')
+  ;;
+  "13")
+ nameFile=$(echo $tempFile_name | tr '[n-za-mN-ZA-M''[a-zA-Z]')
+  ;;
+  "14")
+ nameFile=$(echo $tempFile_name | tr '[o-za-nO-ZA-N]''[a-zA-Z]')
+  ;;
+  "15")
+ nameFile=$(echo $tempFile_name | tr '[p-za-oP-ZA-O]''[a-zA-Z]')
+  ;;
+  "16")
+ nameFile=$(echo $tempFile_name | tr '[q-za-pQ-ZA-P]''[a-zA-Z]')
+  ;;
+  "17")
+ nameFile=$(echo $tempFile_name | tr '[r-za-qR-ZA-Q]''[a-zA-Z]')
+  ;;
+  "18")
+ nameFile=$(echo $tempFile_name | tr '[s-za-rS-ZA-R]''[a-zA-Z]')
+  ;;
+  "19")
+ nameFile=$(echo $tempFile_name | tr '[t-za-sT-ZA-S]''[a-zA-Z]')
+  ;;
+  "20")
+ nameFile=$(echo $tempFile_name | tr '[u-za-tU-ZA-T]''[a-zA-Z]')
+  ;;
+  "21")
+ nameFile=$(echo $tempFile_name | tr '[v-za-uV-ZA-U]''[a-zA-Z]')
+  ;;
+  "22")
+ nameFile=$(echo $tempFile_name | tr '[w-za-vW-ZA-V]''[a-zA-Z]')
+  ;;
+  "23")
+ nameFile=$(echo $tempFile_name | tr   '[x-za-wX-ZA-W]' '[a-zA-Z]')
+  ;;
+esac
+mv $1 $nameFile.txt
+```
+untuk decode digunakan algo yang mirip dengan encode. Pertama dengan cara membaca tanggal dibuatnya file itu, hal itu dapat digunakan dengan date -r namafile fungsi . Sehingga didapatkan jam pada saat file dibuat
+```
+keyDe=$(date -r "$1" "+%H")
+```
+Kemudian diambil kembali pembacaan nama file yang dimaksud dan dibuang ekstensinya(.txt)
+```
+
+v="$1"
+tempFile_name=${v::-4}
+```
 
 ## Pembahasan no 3
 #### 3. A
