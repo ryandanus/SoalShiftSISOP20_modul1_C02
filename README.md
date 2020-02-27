@@ -1,4 +1,5 @@
 # SoalShiftSISOP20_modul1_C02
+# Jawaban Telah Direvisi
 ### Kelompok 
 - Feinard             05111840000081
 - Ryan Danu Saputra   05111840000144
