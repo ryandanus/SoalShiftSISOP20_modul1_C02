@@ -92,11 +92,11 @@ END{
 }' Sample-Superstore.tsv
 
 ```
-Dalam awk ini kita gunakan -F atau bisa disebut FS yang digunakan untuk membagi suatu line menjadi beberapa variable,
+Dalam awk ini kita gunakan -F atau bisa disebut FS yang digunakan untuk membagi suatu line menjadi beberapa variable,dikarenakan adanya line pertama yang berisikan nama table maka kita dapat melakukan skip line dengan menggunakan NR>1.
 ```
-awk -F'\t'
+awk -F'\t' 'NR>1
 ```
-kemudian dikarenakan adanya line pertama yang berisikan nama table maka kita dapat melakukan skip line dengan menggunakan NR>1. Saat dilakukan looping maka array yang bernama *insertname* akan ditambah nilainya, jika nama *insert $13name* sama maka nilainya akan ditambah. Kemudian saat end kita akan mendefinisi hasil yang digunakan untuk parameter nilai terkecil. Di;akukan loopinf for i in array yang berfungsi untuk mengecek apakah array yang dicek sudah habis kemudia menggunakan if array[i] < hasil kita gunakan untuk mencari *$13* terkecil. Kemudian datanya disimpan di kota dan dikeluarkan saat program telah selesai membaca array.
+ Saat dilakukan looping maka array yang bernama *insertname* akan ditambah nilainya, jika nama *insert $13name* sama maka nilainya akan ditambah. Kemudian saat end kita akan mendefinisi hasil yang digunakan untuk parameter nilai terkecil. Dilakukan looping for i in array yang berfungsi untuk mengecek apakah array yang dicek sudah habis kemudia menggunakan if array[i] < hasil kita gunakan untuk mencari *$13* terkecil. Kemudian datanya disimpan di kota dan dikeluarkan saat program telah selesai membaca array.
 #### 1. B
 ```
 #!/bin/bash
@@ -125,7 +125,7 @@ END{
 }
 ' Sample-Superstore.tsv |LC_ALL=C sort -n| head -2 | awk -F':' '{print $2}'
 ```
-Pada no b digunakan hasil dari no a maka digunakan -v yang digunakan untuk mengeset variable dari tempat lainnya. Akan tetapi untuk daapt menghasilkan hasil no 1a digunakan echo dari hasil pertama. Dalam program ini digunakan jawaban1a yang digunakan untuk mendapatkan hasil dari awk 1a/  kemudian dilakukan pengecekan pada *$13* apakah *x* itu yang dimaksud maka digunakan array yang bernama *$11* untuk menjumlah profit.Kemudian pada END dilakukan hal yang sama untuk pengecekan. Akan tetapi dikarenakan output yang dimaksud ada 2 maka digunakan LC_ALL=c sort -n untuk melakukan sort berdasarkan hasil dari *array[i]*. Setelah itu untuk output 2 biji digunakan head -2 kemudian dikeluarkan dengan menggunakan awk baru kembali
+Pada no 1 b digunakan hasil dari no a maka digunakan -v yang digunakan untuk mengeset variable dari tempat lainnya. Akan tetapi untuk daapt menghasilkan hasil no 1a digunakan echo dari hasil pertama. Dalam program ini digunakan jawaban1a yang digunakan untuk mendapatkan hasil dari awk 1a/  kemudian dilakukan pengecekan pada *$13* apakah *x* itu yang dimaksud maka digunakan array yang bernama *$11* untuk menjumlah profit.Kemudian pada END dilakukan hal yang sama untuk pengecekan. Akan tetapi dikarenakan output yang dimaksud ada 2 maka digunakan LC_ALL=c sort -n untuk melakukan sort berdasarkan hasil dari *array[i]*. Setelah itu untuk output 2 biji digunakan head -2 kemudian dikeluarkan dengan menggunakan awk baru kembali
 
 
 #### 1. C
