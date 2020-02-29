@@ -761,4 +761,11 @@ rm wget.log
 rm location.log
 ```
 
+#### Kendala yang ada saat membuat praktikum ini
 
+#### Soal 1.
+Didalam soal satu terdapat beberapa kendala dikarenakan banyaknya sistem awk yang belum terpelajari sehingga ada beberapa kesalahan seperti deklarasi variable.
+#### Soal 2.
+Didalam soal dua ini kurang ditemukan cara yang optimum untuk melakukan enkripsi maupun dekripsi sehingga harus menggunakan case. Tidak hanya itu ada juga kesalahan tidak menggunakan spasi dalam deklarasi tr sehingga program tidak berjalan.
+#### Soal 3.
+Didalam soal 3, ada kesalahan penggunaan ls dikarenakan ls ternyata tidak urut secara default, sehingga terdapat duplikasi didalam kenangan dan duplicate
