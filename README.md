@@ -520,8 +520,8 @@ kemudian dengan time yang ada digunakan case untuk decrypt data
 case "$keyDe" in
 ```
 tetapi untuk melakukan decrypt saat digunakan tr, dari char a-z diganti dengan variable enkripsi. Misalkan jika jam adalah 1 maka char a-z diganti dengan b-za
-```
-nameFile=$(echo $tempFile_name | tr  '[a-zA-Z]' '[a-zA-Z]'
+``` 
+nameFile=$(echo $tempFile_name | tr '[b-zaB-ZA]' '[a-zA-Z]')
 ```
 kemudian outputnya namefile digunakan untuk menggunakan command linux mv untuk mengganti nama yang diencrypt menjadi nama asalnya
 
