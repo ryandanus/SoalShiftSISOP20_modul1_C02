@@ -1,5 +1,4 @@
 # SoalShiftSISOP20_modul1_C02
-# Jawaban Telah Direvisi
 ### Kelompok 
 - Feinard             05111840000081
 - Ryan Danu Saputra   05111840000144
@@ -558,8 +557,7 @@ Sumber : https://www.geeksforgeeks.org/wget-command-in-linux-unix/
 
 Contoh Hasil dari wget ini:
 
-
-![Screenshot from 2020-02-29 19-47-58](https://user-images.githubusercontent.com/58687783/75607701-7ce08900-5b2c-11ea-87d5-622685b227b3.png)
+![Screenshot from 2020-02-29 19-55-39](https://user-images.githubusercontent.com/58687783/75607850-b06fe300-5b2d-11ea-8f3e-44de76c4ed03.png)
 
 #### 3. B
 ```
@@ -709,6 +707,12 @@ Didalam code ini digunakan flag yang bertujuan untuk pengecekan apakah array ite
       echo "MOVING DUPLICATE"
       mv "$name" /home/feinard/Praktikum/.duplicate
 ```
+
+Contoh hasil dari duplicate ini:
+
+
+![Screenshot from 2020-02-29 19-56-04](https://user-images.githubusercontent.com/58687783/75607854-b2d23d00-5b2d-11ea-8f59-d6efd90dd960.png)
+
 karena file yang sama sudah dipindah dan tersisa hanya file-file berbeda yang disimpan setiap 28 foto maka file itu dipindah kedalam folder .kenangan
 ```
 elif [[ "$flag" -eq 0 ]]
@@ -733,6 +737,12 @@ elif [[ "$flag" -eq 0 ]]
       mv "$name" /home/feinard/Praktikum/.kenangan
     fi
 ```
+
+Maka Hasil dari kenangan ini adalah:
+
+
+![Screenshot from 2020-02-29 19-56-33](https://user-images.githubusercontent.com/58687783/75607855-b36ad380-5b2d-11ea-8e96-d83c1a5faba7.png)
+
 selesai , namun karena name.log dan temp.log , location.log sudah tidak digunakan dan tidak perlu kita simpan kita hapus file tersebut dengan menggunakan rm
 
 ```
