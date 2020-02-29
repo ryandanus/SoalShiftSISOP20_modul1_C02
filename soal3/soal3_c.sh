@@ -59,8 +59,8 @@ for ((i=0;i<28;i++))
       mv "$name" /home/feinard/Praktikum/.kenangan
     fi
   done
-cat location.log >> backup.log.bak
-cat wget.log >> backup.log.bak
+cat location.log >> location.log.bak
+cat wget.log >> wget.log.bak
 rm name.log
 rm temp.log
 rm wget.log
