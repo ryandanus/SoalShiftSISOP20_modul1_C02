@@ -269,6 +269,9 @@ dan dikeluarkan dengan menggunakan awk baru
 ```
 awk -F':' '{print $1 " " $2}'
 ```
+Berikut adalah hasil dari ketiga soal yang dimaksud:
+![Screenshot from 2020-02-29 19-38-11](https://user-images.githubusercontent.com/58687783/75607574-19099080-5b2b-11ea-8f09-ee670812dc9c.png)
+
 
 ## Pembahasan no 2 
 #### 2.
@@ -417,6 +420,8 @@ echo "Real Name is: $fixFile_name" >> $nameFile.txt
 echo "Build in: " $(date +"%H:%M") >> $nameFile.txt
 ```
 
+Maka contoh hasil output dari file yang dimaksud adalah:
+![Screenshot from 2020-02-29 19-42-54](https://user-images.githubusercontent.com/58687783/75607631-c5e40d80-5b2b-11ea-8dc8-a21f6880241f.png)
 
 #### 2. D
 ```
@@ -528,6 +533,8 @@ kemudian outputnya namefile digunakan untuk menggunakan command linux mv untuk m
 ```
 mv $1 $nameFile.txt
 ```
+Maka file akan kembali seperti ini:
+![Screenshot from 2020-02-29 19-45-22](https://user-images.githubusercontent.com/58687783/75607663-16f40180-5b2c-11ea-873c-b42d650b6bd8.png)
 
 ## Pembahasan no 3
 #### 3. A
@@ -548,6 +555,9 @@ untuk mengganti nama menjadi nama file menjadi "pdkt_kusuma_NO"
 
 untuk mendapatkan ke 28 gambar dilooping sebanyak 28 kali menggunakan perulangan for
 Sumber : https://www.geeksforgeeks.org/wget-command-in-linux-unix/
+
+Contoh Hasil dari wget ini:
+![Screenshot from 2020-02-29 19-47-58](https://user-images.githubusercontent.com/58687783/75607701-7ce08900-5b2c-11ea-87d5-622685b227b3.png)
 
 #### 3. B
 ```
