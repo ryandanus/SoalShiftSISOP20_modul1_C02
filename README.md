@@ -121,15 +121,18 @@ Dalam awk ini kita gunakan -F atau bisa disebut FS yang digunakan untuk membagi 
 ```
 awk -F'\t' 'NR>1
 ```
- Saat dilakukan looping maka array yang bernama *insertname* akan ditambah nilainya, jika nama *insert $13name* sama maka nilainya akan ditambah. 
+ Saat dilakukan looping maka array yang bernama *insertname* akan ditambah nilainya, jika nama *insert $13name* sama maka nilainya akan ditambah.
+ ```
+ array[$13]+=$21
+ ```
  
  Kemudian saat end kita akan mendefinisi hasil yang digunakan untuk parameter nilai terkecil.
- (disini dimisalkan nilai tersebut adalah 60000000
+ (disini dimisalkan nilai tersebut adalah 60000000)
 ```
  Hasil = 60000000
 ```
   
- Dilakukan looping for i in array yang berfungsi untuk mengecek apakah array yang dicek sudah habis kemudia menggunakan 
+ Dilakukan looping for i in array yang berfungsi untuk mengecek apakah array yang dicek sudah habis kemudian menggunakan 
 ```
    for (i in array){
       if ( array[i] < Hasil ){
@@ -182,13 +185,12 @@ END{
 
 ```
 Pada no 1 b digunakan hasil dari no a maka digunakan -v yang digunakan untuk mengeset variable dari tempat lainnya
+
+Akan tetapi untuk dapat menghasilkan hasil no 1a digunakan echo dari hasil pertama. Dalam program ini, digunakan jawaban dari soal 1a untuk mendapatkan hasil dari awk 1a.
 ```
 awk -F'\t' -v x=$jawaban1a 'NR>1
 ```
-Akan tetapi untuk dapat menghasilkan hasil no 1a digunakan echo dari hasil pertama. Dalam program ini, digunakan jawaban dari soal 1a untuk mendapatkan hasil dari awk 1a.
-```
-echo $jawaban1a
-```
+
 kemudian dilakukan pengecekan pada *$13* apakah *x* itu yang dimaksud maka digunakan array yang bernama *$11* untuk menjumlah profit.
 ```
  if( $13 == x ){
@@ -407,13 +409,14 @@ tr'[a-zA-Z]' '[b-zaB-ZA]'
 
 digunakan untuk membuat a menjadi b dan seterusnya. akan tetapi ada program bisa dilihat bahwa ketika mencapai x yaitu z,maka z harus kembali ke a. Sehingga pada 2nd parameter saat ingin mendapatkan hasil z digunakan b-za yang berfungsi untuk mengembalikan z menjadi a. sehingga, jika jam adalah 2 ketika kita ingin mendapatkan hasil encoding z maka yang didapat adalah b. Didalam paramater ini juga dapat digunakan huruf besar sehingga langsung diberikan disamping a-z menjadi a-zA-Z.
 
+Setelah case selesai maka dikeluarkan echo password, nama aslinya(optional) ,dan tanggalnya(opsional) kedalam namafile.ext yang telah diencode
 ```
 esac
 echo $Password > $nameFile.txt
 echo "Real Name is: $fixFile_name" >> $nameFile.txt
 echo "Build in: " $(date +"%H:%M") >> $nameFile.txt
 ```
-Setelah case selesai maka dikeluarkan echo password, nama aslinya(optional) ,dan tanggalnya(opsional) kedalam namafile.ext yang telah diencode
+
 
 #### 2. D
 ```
@@ -684,3 +687,47 @@ Didalam code ini digunakan flag yang bertujuan untuk pengecekan apakah array ite
         name="duplicate_1"
       fi
  ```
+ 
+ setelah itu jika terdapat file yang sama file tersebut akan dipindah kedalam file duplicate
+ ```
+ cd -
+      a="${filename[$i]}"
+      a="${a//[$'\n\r ']}"
+      mv $a $name
+      echo "MOVING DUPLICATE"
+      mv "$name" /home/feinard/Praktikum/.duplicate
+```
+karena file yang sama sudah dipindah dan tersisa hanya file-file berbeda yang disimpan setiap 28 foto maka file itu dipindah kedalam folder .kenangan
+```
+elif [[ "$flag" -eq 0 ]]
+    then
+      cd /home/feinard/Praktikum/.kenangan
+      temp=1
+      if [[ -e "kenangan_$temp" ]]
+        then
+          while [[ -e "kenangan_$temp" ]] ;
+            do
+              let  temp++
+            done
+          name="kenangan_$temp"
+      else
+        name="kenangan_1"
+      fi
+      cd -
+      b="${filename[$i]}"
+      b="${b//[$s'\n\r ']}"
+      mv $b $name
+      echo "MOVING KENANGAN"
+      mv "$name" /home/feinard/Praktikum/.kenangan
+    fi
+```
+selesai , namun karena name.log dan temp.log , location.log sudah tidak digunakan dan tidak perlu kita simpan kita hapus file tersebut dengan menggunakan rm
+
+```
+rm name.log
+rm temp.log
+rm wget.log
+rm location.log
+```
+
+
