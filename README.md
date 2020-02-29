@@ -557,6 +557,8 @@ untuk mendapatkan ke 28 gambar dilooping sebanyak 28 kali menggunakan perulangan
 Sumber : https://www.geeksforgeeks.org/wget-command-in-linux-unix/
 
 Contoh Hasil dari wget ini:
+
+
 ![Screenshot from 2020-02-29 19-47-58](https://user-images.githubusercontent.com/58687783/75607701-7ce08900-5b2c-11ea-87d5-622685b227b3.png)
 
 #### 3. B
