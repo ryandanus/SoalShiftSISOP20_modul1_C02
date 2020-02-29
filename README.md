@@ -743,6 +743,15 @@ Maka Hasil dari kenangan ini adalah:
 
 ![Screenshot from 2020-02-29 19-56-33](https://user-images.githubusercontent.com/58687783/75607855-b36ad380-5b2d-11ea-8e96-d83c1a5faba7.png)
 
+Setelah itu sisa dari log dimasukan kedalam backup.log.bak
+```
+cat location.log >> backup.log.bak
+cat wget.log >> backup.log.bak
+```
+
+Isi dari backup ini berbentuk seperti ini
+![Screenshot from 2020-02-29 20-01-05](https://user-images.githubusercontent.com/58687783/75607994-43108200-5b2e-11ea-911e-8c7254b8785c.png)
+
 selesai , namun karena name.log dan temp.log , location.log sudah tidak digunakan dan tidak perlu kita simpan kita hapus file tersebut dengan menggunakan rm
 
 ```
